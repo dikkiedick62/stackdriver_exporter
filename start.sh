@@ -1,0 +1,1 @@
+./stackdriver_exporter --google.project-id=bolcom-se-cluster-3c5 --monitoring.metrics-type-prefixes="bigquery.googleapis.com/" --web.listen-address=:8087 --monitoring.metrics-interval=10s --log.level="debug"

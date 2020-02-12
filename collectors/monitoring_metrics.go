@@ -4,8 +4,9 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 	"google.golang.org/api/monitoring/v3"
 
-	"github.com/frodenas/stackdriver_exporter/utils"
 	"sort"
+
+	"github.com/bolcom/stackdriver_exporter/utils"
 )
 
 func buildFQName(timeSeries *monitoring.TimeSeries) string {

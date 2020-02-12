@@ -12,7 +12,7 @@ import (
 	"golang.org/x/net/context"
 	"google.golang.org/api/monitoring/v3"
 
-	"github.com/frodenas/stackdriver_exporter/utils"
+	"github.com/bolcom/stackdriver_exporter/utils"
 )
 
 type MonitoringCollector struct {
@@ -135,7 +135,7 @@ func (c *MonitoringCollector) Collect(ch chan<- prometheus.Metric) {
 	if err := c.reportMonitoringMetrics(ch); err != nil {
 		errorMetric = float64(1)
 		c.scrapeErrorsTotalMetric.Inc()
-		log.Errorf("Error while getting Google Stackdriver Monitoring metrics: %s", err)
+		log.Errorf("Error while getting Google Stackdriver Monitoring metrics for %s: %v", c.projectID, err)
 	}
 	c.scrapeErrorsTotalMetric.Collect(ch)
 
